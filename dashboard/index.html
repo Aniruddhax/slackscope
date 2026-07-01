@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlackScope — AI Project Health Dashboard</title>
+    <meta name="description" content="Real-time AI-powered project health monitoring for Slack workspaces">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">🔭</div>
+            <div>
+                <h1>SlackScope</h1>
+                <p class="subtitle">AI Project Health Dashboard</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-badge" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span>Connected</span>
+            </div>
+            <button class="btn-refresh" onclick="refreshData()" id="refreshBtn">
+                <span class="refresh-icon">↻</span> Refresh
+            </button>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-card">
+            <span class="stat-icon">📊</span>
+            <div>
+                <div class="stat-value" id="avgScore">—</div>
+                <div class="stat-label">Avg Health</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-icon">📡</span>
+            <div>
+                <div class="stat-value" id="channelCount">—</div>
+                <div class="stat-label">Channels</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-icon">🚧</span>
+            <div>
+                <div class="stat-value" id="totalBlockers">—</div>
+                <div class="stat-label">Blockers</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-icon">🔔</span>
+            <div>
+                <div class="stat-value" id="alertCount">—</div>
+                <div class="stat-label">Alerts</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Grid -->
+    <main class="dashboard-grid">
+        <!-- Channel Health Cards -->
+        <section class="panel channels-panel">
+            <h2 class="panel-title">
+                <span>🏥</span> Channel Health
+            </h2>
+            <div id="channelCards" class="channel-cards">
+                <div class="loading-placeholder">Loading channels...</div>
+            </div>
+        </section>
+
+        <!-- Health Trend Chart -->
+        <section class="panel chart-panel">
+            <h2 class="panel-title">
+                <span>📈</span> Health Trends
+            </h2>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Activity Heatmap -->
+        <section class="panel heatmap-panel">
+            <h2 class="panel-title">
+                <span>🔥</span> Activity Heatmap
+            </h2>
+            <div class="chart-container">
+                <canvas id="heatmapChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Sentiment Distribution -->
+        <section class="panel sentiment-panel">
+            <h2 class="panel-title">
+                <span>💬</span> Sentiment
+            </h2>
+            <div class="chart-container chart-container-small">
+                <canvas id="sentimentChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Smart Alerts Feed -->
+        <section class="panel alerts-panel">
+            <h2 class="panel-title">
+                <span>🔔</span> Smart Alerts
+            </h2>
+            <div id="alertsFeed" class="alerts-feed">
+                <div class="loading-placeholder">No alerts yet</div>
+            </div>
+        </section>
+
+        <!-- Team Leaderboard -->
+        <section class="panel team-panel">
+            <h2 class="panel-title">
+                <span>🏆</span> Team Leaderboard
+            </h2>
+            <div id="teamLeaderboard" class="team-leaderboard">
+                <div class="loading-placeholder">Loading team data...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🔭 SlackScope — AI Project Health Dashboard | Auto-refreshes every 60s</p>
+        <p id="lastUpdate">Last updated: —</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

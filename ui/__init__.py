@@ -1,0 +1,1 @@
+# SlackScope UI module

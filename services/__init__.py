@@ -1,0 +1,1 @@
+# SlackScope services module

@@ -1,0 +1,24 @@
+# Environment
+.env
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Runtime data
+data/
+
+# Seed scripts (local testing only)
+seed_data.py
+seed_data_v2.py
+seed_enterprise.py
+debug_channels.py
+check_env.py

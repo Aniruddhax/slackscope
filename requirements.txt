@@ -1,0 +1,8 @@
+# Dependencies for SlackScope
+slack-bolt==1.21.3
+slack-sdk==3.34.0
+python-dotenv>=1.1.0
+openai==1.82.0
+apscheduler==3.10.4
+fastmcp==2.5.1
+httpx==0.28.1

@@ -1,0 +1,1 @@
+# SlackScope MCP server module
