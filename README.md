@@ -1,6 +1,8 @@
 # SlackScope — AI Project Health Dashboard for Slack
 
 > 🏆 Built for the [Slack Agent Builder Challenge](https://slackhack.devpost.com/) hackathon
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/5977c458-e87a-4cc8-b648-eef8f8b75686" />
+
 
 ## What is SlackScope?
 
